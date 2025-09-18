@@ -5,6 +5,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Project Overview
 
 This is **Plannify**, a Laravel 12 application using:
+
 - PHP 8.2+
 - Laravel Framework 12.0
 - Laravel Breeze for authentication
@@ -15,16 +16,20 @@ This is **Plannify**, a Laravel 12 application using:
 ## Development Commands
 
 ### Starting Development
+
 ```bash
 composer dev
 ```
+
 This single command starts all development services concurrently:
+
 - Laravel development server (`php artisan serve`)
 - Queue worker (`php artisan queue:listen --tries=1`)
 - Log viewer (`php artisan pail --timeout=0`)
 - Vite development server (`npm run dev`)
 
 ### Individual Commands
+
 - **Laravel server**: `php artisan serve`
 - **Frontend development**: `npm run dev`
 - **Frontend build**: `npm run build`
@@ -32,6 +37,7 @@ This single command starts all development services concurrently:
 - **Code formatting**: `vendor/bin/pint` (Laravel Pint)
 
 ### Artisan Commands
+
 - **Generate application key**: `php artisan key:generate`
 - **Run migrations**: `php artisan migrate`
 - **Clear config cache**: `php artisan config:clear`
@@ -40,16 +46,18 @@ This single command starts all development services concurrently:
 ## Architecture
 
 ### Directory Structure
+
 - `app/` - Application logic (Models, Controllers, Providers)
 - `resources/` - Frontend assets and Blade views
-  - `resources/js/` - JavaScript files (app.js, bootstrap.js)
-  - `resources/css/` - Stylesheets (app.css with Tailwind)
-  - `resources/views/` - Blade templates
+    - `resources/js/` - JavaScript files (app.js, bootstrap.js)
+    - `resources/css/` - Stylesheets (app.css with Tailwind)
+    - `resources/views/` - Blade templates
 - `routes/` - Route definitions (web.php, console.php)
 - `database/` - Migrations, seeders, factories, and SQLite database file
 - `tests/` - PHPUnit tests (Unit and Feature directories)
 
 ### Key Technologies
+
 - **Backend**: Laravel 12 with standard MVC architecture
 - **Database**: SQLite (database.sqlite file)
 - **Frontend**: Blade templates with Tailwind CSS 4.0
@@ -58,6 +66,7 @@ This single command starts all development services concurrently:
 - **Code Style**: Laravel Pint for PHP formatting
 
 ### Authentication
+
 Laravel Breeze is installed for authentication scaffolding.
 
 ## Testing
