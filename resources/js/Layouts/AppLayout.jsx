@@ -9,7 +9,6 @@ import { PiSidebar, PiX } from 'react-icons/pi';
 export default function AppLayout({ children, title }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const auth = usePage().props.auth.user;
-  console.log(auth);
   const { url } = usePage();
   const workspaces = usePage().props.workspaces;
 
@@ -59,7 +58,7 @@ export default function AppLayout({ children, title }) {
                     </div>
                   </Transition.Child>
                   {/* Sidebar Responsive */}
-                  <SidebarResponsive />
+                  <SidebarResponsive auth={auth} />
                 </Dialog.Panel>
               </Transition.Child>
             </div>
@@ -75,7 +74,7 @@ export default function AppLayout({ children, title }) {
             </div>
 
             {/* Sidebar */}
-            <Sidebar />
+            <Sidebar auth={auth} />
           </div>
         </div>
 
