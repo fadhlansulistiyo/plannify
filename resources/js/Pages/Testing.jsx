@@ -1,5 +1,7 @@
-import AppLayout from '@/Layouts/AppLayout';
+import AppLayout from '@/Layouts/AppLayout.jsx';
 
 export default function Testing() {
-    return <AppLayout>This is testing</AppLayout>;
+  return <div>This is testing page.</div>;
 }
+
+Testing.layout = (page) => <AppLayout children={page} title={'Testing'} />;

@@ -33,24 +33,22 @@ export default function ForgotPassword({ status }) {
             <div className="mt-6 sm:mx-auto sm:w-full sm:max-w-sm">
               {status && <div className="mb-4 text-sm font-medium text-green-600">{status}</div>}
               <form className="space-y-6" onSubmit={submit}>
-                {/* form  */}
                 <div>
-                  <InputLabel htmlFor="email" value={'Email'} />
                   <TextInput
                     id="email"
-                    name="email"
                     type="email"
+                    name="email"
                     value={data.email}
-                    className="mt-1 block w-full"
+                    className={'mt-1 block w-full'}
                     isFocused={true}
-                    placeholders="Email Address"
-                    onChange={(e) => setData('email', e.target.email)}
-                    onErrors={errors.email && <InputError className="mt-1" message={errors.email} />}
+                    placeholder="Email Address"
+                    required
+                    onChange={(e) => setData('email', e.target.value)}
+                    onErrors={errors.email && <InputError message={errors.email} className={'mt-2'} />}
                   />
                 </div>
-
                 <div>
-                  <Button type="submit" variant="red" className="w-full" disabled={processing}>
+                  <Button type="submit" className="w-full" disabled={processing}>
                     Email password reset link
                   </Button>
                 </div>
@@ -63,4 +61,4 @@ export default function ForgotPassword({ status }) {
   );
 }
 
-ForgotPassword.layout = (page) => <GuestLayout children={page} title="Forgot Password" />;
+ForgotPassword.layout = (page) => <GuestLayout children={page} title={'Forgot Password'} />;

@@ -44,47 +44,44 @@ export default function ResetPassword({ token, email }) {
                   <InputLabel htmlFor="email" value="Email" />
                   <TextInput
                     id="email"
-                    name="email"
                     type="email"
+                    name="email"
                     value={data.email}
-                    className="mt-1 block w-full"
-                    onChange={(e) => setData('email', e.target.email)}
-                    onErrors={errors.email && <InputError message={errors.email} className="mt-2" />}
+                    className={'mt-1 block w-full'}
+                    onChange={(e) => setData('email', e.target.value)}
+                    onErrors={errors.email && <InputError message={errors.email} className={'mt-2'} />}
                   />
                 </div>
-
                 <div>
                   <InputLabel htmlFor="password" value="Password" />
                   <TextInput
                     id="password"
-                    name="password"
                     type="password"
+                    name="password"
                     value={data.password}
-                    className="mt-1 block w-full"
-                    onChange={(e) => setData('password', e.target.password)}
-                    onErrors={errors.password && <InputError message={errors.password} className="mt-2" />}
+                    className={'mt-1 block w-full'}
+                    onChange={(e) => setData('password', e.target.value)}
+                    onErrors={errors.password && <InputError message={errors.password} className={'mt-2'} />}
                   />
                 </div>
-
                 <div>
                   <InputLabel htmlFor="password_confirmation" value="Password Confirmation" />
                   <TextInput
                     id="password_confirmation"
+                    type="password"
                     name="password_confirmation"
-                    type="password_confirmation"
                     value={data.password_confirmation}
-                    className="mt-1 block w-full"
-                    onChange={(e) => setData('password_confirmation', e.target.password_confirmation)}
+                    className={'mt-1 block w-full'}
+                    onChange={(e) => setData('password_confirmation', e.target.value)}
                     onErrors={
                       errors.password_confirmation && (
-                        <InputError message={errors.password_confirmation} className="mt-2" />
+                        <InputError message={errors.password_confirmation} className={'mt-2'} />
                       )
                     }
                   />
                 </div>
-
                 <div>
-                  <Button type="submit" variant="red" className="w-full" disabled={processing}>
+                  <Button type="submit" className="w-full" disabled={processing}>
                     Reset Password
                   </Button>
                 </div>
@@ -97,4 +94,4 @@ export default function ResetPassword({ token, email }) {
   );
 }
 
-ResetPassword.layout = (page) => <GuestLayout children={page} title="Reset Password" />;
+ResetPassword.layout = (page) => <GuestLayout title={'Reset Password'} children={page} />;

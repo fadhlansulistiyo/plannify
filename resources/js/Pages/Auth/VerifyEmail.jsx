@@ -34,13 +34,15 @@ export default function VerifyEmail({ status }) {
               )}
               <form className="space-y-6" onSubmit={submit}>
                 {/* form */}
-                <div className="mt-4 flex items-center justify-between">
-                  <Button disabled={processing}>Resend Verification</Button>
+                <div className={'mt-4 flex items-center justify-between'}>
+                  <Button disabled={processing}>Resend Verification Email</Button>
                   <Link
                     href={route('logout')}
                     method="post"
                     as="button"
-                    className="rounded-md text-sm text-muted-foreground underline hover:text-foreground focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
+                    className={
+                      'rounded-md text-sm text-muted-foreground underline hover:text-foreground focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2'
+                    }
                   >
                     Logout
                   </Link>
@@ -54,4 +56,4 @@ export default function VerifyEmail({ status }) {
   );
 }
 
-VerifyEmail.layout = (page) => <GuestLayout children={page} title="Verify Email" />;
+VerifyEmail.layout = (page) => <GuestLayout children={page} title={'Verify Email'} />;
