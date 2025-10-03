@@ -2,12 +2,16 @@ import { Avatar, AvatarFallback } from '@/Components/ui/avatar';
 import Sidebar from '@/Layouts/Partials/Sidebar';
 import SidebarResponsive from '@/Layouts/Partials/SidebarResponsive';
 import { Dialog, Transition } from '@headlessui/react';
-import { Head, Link } from '@inertiajs/react';
+import { Head, Link, usePage } from '@inertiajs/react';
 import { Fragment, useState } from 'react';
 import { PiSidebar, PiX } from 'react-icons/pi';
 
 export default function AppLayout({ children, title }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const auth = usePage().props.auth.user;
+  console.log(auth);
+  const { url } = usePage();
+  const workspaces = usePage().props.workspaces;
 
   return (
     <>

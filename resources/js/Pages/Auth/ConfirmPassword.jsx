@@ -41,22 +41,20 @@ export default function ConfirmPassword() {
               <form className="space-y-6" onSubmit={submit}>
                 {/* form */}
                 <div>
-                  <InputLabel htmlFor="email" value={'Email'} />
+                  <InputLabel htmlFor="password" value="Password" />
                   <TextInput
                     id="password"
-                    name="password"
                     type="password"
+                    name="password"
                     value={data.password}
-                    className="mt-1 block w-full"
+                    className={'mt-1 block w-full'}
+                    onChange={(e) => setData('password', e.target.value)}
+                    onErrors={errors.password && <InputError message={errors.password} className={'mt-2'} />}
                     isFocused={true}
-                    placeholders="password Address"
-                    onChange={(e) => setData('password', e.target.password)}
-                    onErrors={errors.password && <InputError className="mt-1" message={errors.password} />}
                   />
                 </div>
-
                 <div>
-                  <Button type="submit" variant="red" className="w-full" disabled={processing}>
+                  <Button type="submit" className="w-full" disabled={processing}>
                     Confirm
                   </Button>
                 </div>
@@ -69,4 +67,4 @@ export default function ConfirmPassword() {
   );
 }
 
-ConfirmPassword.layout = (page) => <GuestLayout children={page} title="Confirm Password" />;
+ConfirmPassword.layout = (page) => <GuestLayout children={page} title={'Confirm Password'} />;
