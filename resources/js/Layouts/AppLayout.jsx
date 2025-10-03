@@ -1,6 +1,7 @@
 import { Avatar, AvatarFallback } from '@/Components/ui/avatar';
-import Sidebar from '@/Layouts/Partials/Sidebar';
-import SidebarResponsive from '@/Layouts/Partials/SidebarResponsive';
+import { Toaster } from '@/Components/ui/sonner.jsx';
+import Sidebar from '@/Layouts/Partials/Sidebar.jsx';
+import SidebarResponsive from '@/Layouts/Partials/SidebarResponsive.jsx';
 import { Dialog, Transition } from '@headlessui/react';
 import { Head, Link, usePage } from '@inertiajs/react';
 import { Fragment, useState } from 'react';
@@ -10,11 +11,11 @@ export default function AppLayout({ children, title }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const auth = usePage().props.auth.user;
   const { url } = usePage();
-  const workspaces = usePage().props.workspaces;
 
   return (
     <>
       <Head title={title} />
+      <Toaster position={'top-center'} richColors />
       <div>
         <Transition.Root show={sidebarOpen} as={Fragment}>
           <Dialog as="div" className="relative z-50 lg:hidden" onClose={setSidebarOpen}>
@@ -57,8 +58,8 @@ export default function AppLayout({ children, title }) {
                       </button>
                     </div>
                   </Transition.Child>
-                  {/* Sidebar Responsive */}
-                  <SidebarResponsive auth={auth} />
+                  {/*  Sidebar Responsive  */}
+                  <SidebarResponsive auth={auth} url={url} />
                 </Dialog.Panel>
               </Transition.Child>
             </div>
@@ -72,9 +73,8 @@ export default function AppLayout({ children, title }) {
                 Plannify<span className="text-red-500">.</span>
               </Link>
             </div>
-
             {/* Sidebar */}
-            <Sidebar auth={auth} />
+            <Sidebar auth={auth} url={url} />
           </div>
         </div>
 
